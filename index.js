@@ -32,6 +32,14 @@ const server = http.createServer( (req, res) => {
                 res.end(data);
             })
         break;
+        case req.url === "/alap2.css" && req.method === "GET":
+
+            fs.readFile('kép.jpg', (err, data) => {
+                res.setHeader('Content-Type', 'image/jpeg')
+                res.writeHead(200);
+                res.end(data);
+            })
+        break;
         default:
             fs.readFile('hiba.html', 'utf8', (err, data) => {
                 res.setHeader('Content-Type', 'text/html')
